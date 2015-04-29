@@ -9,7 +9,7 @@
 
  ?>
  
- 	<nav class="menu menu-right" id="profile">
+<!--   	<nav class="menu menu-right" id="profile">
 		<div class="menu-scroll">
 			<div class="menu-wrap">
 				<div class="menu-top">
@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 	<div class="menu menu-right menu-search" id="search">
 		<div class="menu-scroll">
 			<div class="menu-wrap">

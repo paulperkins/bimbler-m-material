@@ -1,10 +1,24 @@
 <?php
-
+	global $current_user;
+	get_currentuserinfo();
+	
+	$avatar .= get_avatar ($current_user->ID, null, null, $current_user->user_login);
+	$avatar_img = bimbler_get_avatar_img($avatar);
+	$user_fmt = $current_user->user_firstname . ' ' . $current_user->user_lastname;
 ?>
 
 <nav class="menu" id="menu">
 	<div class="menu-scroll">
 		<div class="menu-wrap">
+			<div class="menu-top">
+				<div class="menu-top-img">
+					<img alt="<?php echo $user_fmt; ?>" src="<?php echo $avatar_img; ?>">
+				</div>
+				<div class="menu-top-info">
+					<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="<?php echo $user_fmt; ?>" src="<?php echo $avatar_img; ?>"></span><?php echo $user_fmt; ?></a>
+				</div>
+			</div>
+	
 			<div class="menu-content">
 				<ul class="nav">
 					<li><a href="index.php">Up-coming events</a></li>
