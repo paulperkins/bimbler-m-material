@@ -1,4 +1,12 @@
 <?php
+
+	global $current_user;
+	get_currentuserinfo();
+	
+	$avatar .= get_avatar ($current_user->ID, null, null, $current_user->user_login);
+	$avatar_img = bimbler_get_avatar_img($avatar);
+	$user_fmt = $current_user->user_firstname . ' ' . $current_user->user_lastname;  
+
  ?>
  
  	<nav class="menu menu-right" id="profile">
@@ -6,10 +14,10 @@
 			<div class="menu-wrap">
 				<div class="menu-top">
 					<div class="menu-top-img">
-						<img alt="John Smith" src="images/samples/landscape.jpg">
+						<img alt="<?php echo $user_fmt; ?>" src="<?php echo $avatar_img; ?>">
 					</div>
 					<div class="menu-top-info">
-						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>John Smith</a>
+						<a class="menu-top-user" href="javascript:void(0)"><span class="avatar pull-left"><img alt="<?php echo $user_fmt; ?>" src="<?php echo $avatar_img; ?>"></span><?php echo $user_fmt; ?></a>
 					</div>
 				</div>
 				<div class="menu-content">

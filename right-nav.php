@@ -1,5 +1,11 @@
 <?php
 
+	global $current_user;
+	get_currentuserinfo();
+	
+	$avatar .= get_avatar ($current_user->ID, null, null, $current_user->user_login);
+	$avatar_img = bimbler_get_avatar_img($avatar);
+	$user_fmt = $current_user->user_firstname . ' ' . $current_user->user_lastname;
 ?>
 
 	<header class="header">
@@ -23,8 +29,8 @@
 			</li>
 			<li>
 				<a class="menu-toggle" href="#profile">
-					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
+					<span class="access-hide"><?php echo $user_fmt ?></span>
+					<span class="avatar avatar-sm"><img alt="<?php echo $user_fmt ?>" src="<?php echo $avatar_img; ?>"></span>
 					<span class="header-close icon icon-close"></span>
 				</a>
 			</li>
