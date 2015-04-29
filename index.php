@@ -40,6 +40,29 @@
  
 	require_once ('../m/events.php');
 
+	if (isset ($_GET['newest'])) {
+		$which = 'newest';
+	
+		$posts = bimbler_mobile_get_added_events ();
+		
+		$page_title = 'Recently added events';
+			
+	} else if (isset ($_GET['past'])) {
+		$which = 'past';
+	
+		$posts = bimbler_mobile_get_past_events ();
+		
+		$page_title = 'Past events';
+		
+	} else {
+		$which = 'upcoming';
+	
+		$posts = bimbler_mobile_get_upcoming_events ();
+		
+		$page_title = 'Up-coming events';
+	}
+	
+	
 ?>
 
 <body class="page-yellow">
@@ -55,7 +78,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1">
-						<h1 class="heading">Up-coming events</h1>
+						<h1 class="heading"><?php echo $page_title; ?></h1>
 					</div>
 				</div>
 			</div>
@@ -72,11 +95,9 @@
 	global $bimbler_mobile_day_time_str;
 	$month_str = 'F';
 
-
 	$first = true;
 	$divider = '';
 
-	$posts = bimbler_mobile_get_upcoming_events ();
 
 	foreach ($posts as $post) {
 
@@ -87,16 +108,21 @@
 		$rwgps_id = Bimbler_RSVP::get_instance()->get_rwgps_id ($post->ID);
 		$event_month = date ($month_str, strtotime($event_date));
 	
-		if ($first) {					
+		if ($first && ('upcoming' == $which)) {					
 ?>						
 	
 				<h2 class="content-sub-heading">Next event:</h2>
 											
 <?php
+		} else if ($first && ('newest' == $which)) {
+?>
+				<h2 class="content-sub-heading">Recently added:</h2>
+<?php 
 		} else {
 
-			// Show a new divider if the month is now different.
- 			if ($divider != $event_month) {
+			
+			// Don't bother with a divider if we're rendering recently updated rides.
+			if (('newest' != $which) && ($divider != $event_month)) {
 
 				// If we have a divider, then end the animation.
 				if (!empty ($divider)) {

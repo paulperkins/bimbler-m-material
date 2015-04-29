@@ -22,8 +22,8 @@
 			<div class="menu-content">
 				<ul class="nav">
 					<li><a href="index.php"><span class="icon icon-home"></span>Up-coming events</a></li>
-					<li><a href="index.php"><span class="icon icon-access-time"></span>Past events</a></li>
-					<li><a href="index.php"><span class="icon icon-star"></span>Recently-added</a></li>
+					<li><a href="index.php?past=1"><span class="icon icon-access-time"></span>Past events</a></li>
+					<li><a href="index.php?newest=1"><span class="icon icon-star"></span>Recently-added</a></li>
 <!--  					<li><a href="ui-modal.html">Modals &amp; Toasts</a></li>
 					<li><a href="ui-nav.html">Navs</a></li>
 					<li><a href="ui-progress.html">Progress Bars</a></li>
