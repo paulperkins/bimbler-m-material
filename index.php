@@ -110,8 +110,6 @@
 		$event_date = $post->EventStartDate;
 		$rwgps_id = Bimbler_RSVP::get_instance()->get_rwgps_id ($post->ID);
 		$event_month = date ($month_str, strtotime($event_date));
-
-
 	
 		if ($first) {					
 ?>						
@@ -120,13 +118,15 @@
 											
 <?php
 		} else {
- 			if ($divider != $event_month) {
+
+			// Show a new divider if the month is now different.
+ 			//if ($divider != $event_month) {
 						
 				$divider = $event_month;
 ?>
 				<h2 class="content-sub-heading"><?php echo $divider; ?></h2>
 <?php		
-			}
+			//}
 		}
 
 
