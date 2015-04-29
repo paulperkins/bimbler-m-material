@@ -121,11 +121,19 @@
 
 			// Show a new divider if the month is now different.
  			if ($divider != $event_month) {
+
+				// If we have a divider, then end the animation.
+				if (!empty ($divider)) {
+					echo '</div>' . PHP_EOL;
+				}
+
 						
 				$divider = $event_month;
 ?>
 				<h2 class="content-sub-heading"><?php echo $divider; ?></h2>
 <?php		
+				// Start a new animation.
+				echo '<div class="tile-wrap tile-wrap-animation">' . PHP_EOL;
 			}
 		}
 
