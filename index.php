@@ -120,13 +120,13 @@
 		} else {
 
 			// Show a new divider if the month is now different.
- 			//if ($divider != $event_month) {
+ 			if ($divider != $event_month) {
 						
 				$divider = $event_month;
 ?>
 				<h2 class="content-sub-heading"><?php echo $divider; ?></h2>
 <?php		
-			//}
+			}
 		}
 
 
