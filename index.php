@@ -168,6 +168,14 @@
 						<div class="tile-inner">
 							<span><strong><?php echo $post->post_title; ?></strong></span><br>
 							<span><?php echo date ($bimbler_mobile_time_str, strtotime($event_date)); ?></span>
+
+							<div class="pull-right tile-side">
+								<span class="icon icon-chevron-right" style="font-size: 2em; vertical-align: middle;"></span>
+								<!--  <div class="avatar avatar-blue avatar-sm">
+								<span class="icon chevron-right"></span> 
+							</div> -->
+						</div>
+							
 						</div>
 					</div>
 
