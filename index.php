@@ -20,7 +20,8 @@
 	<title><?php bloginfo ('name'); ?></title>
 
 	<!-- css -->
-	<link href="css/base.min.css" rel="stylesheet">
+<!--  	<link href="css/base.min.css" rel="stylesheet"> -->
+	<link href="css/base.css" rel="stylesheet">
 	
 	<script type="text/javascript" src="//maps.google.com/maps/api/js?sensor=false"></script>
 	
@@ -32,6 +33,7 @@
 			<script src="js/html5shiv.js" type="text/javascript"></script>
 			<script src="js/respond.js" type="text/javascript"></script>
 		<![endif]-->
+
 </head>
 
 <?php
@@ -41,35 +43,9 @@
 ?>
 
 <body class="page-yellow">
-	<header class="header">
-		<ul class="nav nav-list pull-left">
-			<li>
-				<a class="menu-toggle" href="#menu">
-					<span class="access-hide">Menu</span>
-					<span class="icon icon-menu"></span>
-					<span class="header-close icon icon-close"></span>
-				</a>
-			</li>
-		</ul>
-		<a class="header-logo" href="/"><?php bloginfo ('name'); ?></a>
-		<ul class="nav nav-list pull-right">
-			<li>
-				<a class="menu-toggle" href="#search">
-					<span class="access-hide">Search</span>
-					<span class="icon icon-search"></span>
-					<span class="header-close icon icon-close"></span>
-				</a>
-			</li>
-			<li>
-				<a class="menu-toggle" href="#profile">
-					<span class="access-hide">John Smith</span>
-					<span class="avatar avatar-sm"><img alt="alt text for John Smith avatar" src="images/users/avatar-001.jpg"></span>
-					<span class="header-close icon icon-close"></span>
-				</a>
-			</li>
-		</ul>
-	</header>
 
+<?php require_once ('right-nav.php'); ?>
+	
 <?php require_once ('main-menu.php'); ?>
 
 <?php require_once ('right-menu.php'); ?>
