@@ -1,3 +1,6 @@
+<?php 
+	// Material implementation.
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +40,7 @@
 
 ?>
 
-<body>
+<body class="page-yellow">
 	<header class="header">
 		<ul class="nav nav-list pull-left">
 			<li>
@@ -87,59 +90,70 @@
 <!--  				<div class="row">
 					<div class="col-lg-6 col-lg-push-3 col-sm-10 col-sm-push-1"> -->
 			
-						<h2 class="content-sub-heading">Next event:</h2>
 						
 <?php
 
 	global $bimbler_mobile_day_time_str;
+	$month_str = 'F';
+
+
+	$first = true;
+	$divider = '';
 
 	$posts = bimbler_mobile_get_upcoming_events ();
 
-	$post = $posts[0];
+	foreach ($posts as $post) {
 
-	$addr = get_venue_address($post->ID);
-	$event_date = $post->EventStartDate;
-	$rwgps_id = Bimbler_RSVP::get_instance()->get_rwgps_id ($post->ID);
+		//$post = $posts[0];
 
-						// First event - card format (with map).
+		$addr = get_venue_address($post->ID);
+		$event_date = $post->EventStartDate;
+		$rwgps_id = Bimbler_RSVP::get_instance()->get_rwgps_id ($post->ID);
+		$event_month = date ($month_str, strtotime($event_date));
+
+
+	
+		if ($first) {					
 ?>						
+	
+				<h2 class="content-sub-heading">Next event:</h2>
+											
+<?php
+		} else {
+ 			if ($divider != $event_month) {
 						
+				$divider = $event_month;
+?>
+				<h2 class="content-sub-heading"><?php echo $divider; ?></h2>
+<?php		
+			}
+		}
+
+
+		// First event - card format (with map).
+		if ($first && (!empty ($addr))) { 
+?>
 						<div class="card-wrap">
 							<div class="row">
 					
 								<div class="col-lg-3 col-md-4 col-sm-6">
-									<a href="">
 									<div class="card">
 										<div class="card-main">
 											<div class="card-img">
-											
-<?php
-
-	// Show start point in preference to the map.											
-	if (!empty ($addr)) {
-
-		echo '				<div class="tribe-events-venue-map">' . PHP_EOL;
-		echo tribe_get_embedded_map ($post->ID, '100%', '150px', true) . PHP_EOL;
-		echo '				</div>' . PHP_EOL;
-
-	} /*elseif (!empty ($rwgps_id)) {
-
-		echo bimbler_mobile_render_map_iframe ($post->ID, $rwgps_id);
-
-	}*/ else {
-
-		// Do something...
-
-	}
-?>
-							
 												<!--  <img alt="alt text" src="images/samples/landscape.jpg"> -->
+												
+												<div class="tribe-events-venue-map">
+													<?php echo tribe_get_embedded_map ($post->ID, '100%', '150px', true); ?>
+												</div>
+												
 												<p class="card-img-heading"><?php echo $post->post_title; ?></p>
 											</div>
+											<a href="">
 											<div class="card-inner">
 												<p><?php echo date ($bimbler_mobile_day_time_str, strtotime($event_date)) ?></p>
 												<p><?php echo $post->excerpt; ?></p>
 											</div>
+											</a>
 		<!--  									<div class="card-action">
 												<ul class="nav nav-list pull-left">
 													<li>
@@ -152,16 +166,38 @@
 											</div> -->
 										</div>
 									</div>
-									</a>
 								</div>
 				
 							</div>
 						</div>			
 <?php
+					
+		} else { // End first event card.
+?>
 
-						// End first event card.
+					<div class="tile">
+						<div class="pull-left tile-side">
+							<div class="avatar avatar-blue avatar-sm">
+								<span class="icon icon-alarm"></span>
+							</div>
+						</div>
+						<div class="tile-inner">
+							<p><strong><?php echo $post->post_title; ?></strong></p>
+							<p><?php echo date ($bimbler_mobile_time_str, strtotime($event_date)); ?></p>
+						</div>
+					</div>
 
-	//}
+
+<?php
+		} // Remaining events.
+	
+
+
+
+		if ($first) {
+			$first = false;
+		}
+	}
 ?>
 
 
@@ -171,6 +207,7 @@
 		
 			
 				<h2 class="content-sub-heading">Simple Tiles</h2>
+				
 				<div class="tile-wrap tile-wrap-animation">
 					<div class="tile">
 						<div class="pull-left tile-side">
