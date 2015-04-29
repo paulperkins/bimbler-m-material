@@ -182,8 +182,8 @@
 							</div>
 						</div>
 						<div class="tile-inner">
-							<p><strong><?php echo $post->post_title; ?></strong></p>
-							<p><?php echo date ($bimbler_mobile_time_str, strtotime($event_date)); ?></p>
+							<span><strong><?php echo $post->post_title; ?></strong></span><br>
+							<span><?php echo date ($bimbler_mobile_time_str, strtotime($event_date)); ?></span>
 						</div>
 					</div>
 
