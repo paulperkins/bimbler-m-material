@@ -33,7 +33,7 @@
 
 <?php
  
-	include_once ('../m/events.php');
+	require_once ('../m/events.php');
 
 ?>
 
@@ -321,7 +321,7 @@
 	</div>
 	<footer class="footer">
 		<div class="container">
-			<p>Material</p>
+			<p>Bimblers</p>
 		</div>
 	</footer>
 	<div class="fbtn-container">
