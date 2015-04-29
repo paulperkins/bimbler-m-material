@@ -16,8 +16,40 @@
 
 	<meta charset="UTF-8">
 	<meta content="IE=edge" http-equiv="X-UA-Compatible">
-	<meta content="initial-scale=1.0, width=device-width" name="viewport">
 	<title><?php bloginfo ('name'); ?></title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="<?php bloginfo ('description'); ?>" />
+	<meta name="author" content="" />
+		
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+	<meta name="mobile-web-app-capable" content="yes">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+<!--  	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" /> --> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="white" /> 
+	<link rel="apple-touch-startup-image" href="bimbler_ilogo.png">
+	
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="icon" sizes="16x16 32x32 64x64" href="favicon.ico">
+	<link rel="icon" type="image/png" sizes="196x196" href="favicon-196.png">
+	<link rel="icon" type="image/png" sizes="160x160" href="favicon-160.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
+	<link rel="icon" type="image/png" sizes="64x64" href="favicon-64.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicon-152.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicon-144.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicon-120.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicon-114.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicon-76.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicon-72.png">
+	<link rel="apple-touch-icon" href="favicon-57.png">
+	<meta name="msapplication-TileColor" content="#FFFFFF">
+	<meta name="msapplication-TileImage" content="favicon-144.png">
+	<meta name="msapplication-config" content="browserconfig.xml">	
+	
+	
 
 	<!-- css -->
 <!--  	<link href="css/base.min.css" rel="stylesheet"> -->
