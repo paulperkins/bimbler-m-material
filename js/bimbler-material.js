@@ -96,10 +96,21 @@ jQuery(document).ready(function ($) {
 	}
 	
 	// Stop links opening in a new window on Safari in app mode.
-	$("a").click(function (event) {
+/*	$("a").click(function (event) {
 		event.preventDefault();
 		window.location = $(this).attr("href");
-	});
+	}); */
+	
+	if (("standalone" in window.navigator) && window.navigator.standalone) {
+		// For iOS Apps
+		$('a').on('click', function(e){
+			e.preventDefault();
+			var new_location = $(this).attr('href');
+			if (new_location != undefined && new_location.substr(0, 1) != '#' && $(this).attr('data-method') == undefined){
+				window.location = new_location;
+			}
+		});
+    }
 	
 	//showVenueMap ($(this)[0].activeElement);
 	
