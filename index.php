@@ -217,6 +217,7 @@
 		} else { // End first event card.
 ?>
 
+				<a href="event.php?event=<?php echo $post->ID; ?>">
 					<div class="tile">
 						<div class="pull-left tile-side">
 							<div class="avatar avatar-blue avatar-sm">
@@ -236,6 +237,7 @@
 							
 						</div>
 					</div>
+				</a>
 
 
 <?php
