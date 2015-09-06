@@ -95,6 +95,12 @@ jQuery(document).ready(function ($) {
 		}
 	}
 	
+	// Stop links opening in a new window on Safari in app mode.
+	$("a").click(function (event) {
+		event.preventDefault();
+		window.location = $(this).attr("href");
+	});
+	
 	//showVenueMap ($(this)[0].activeElement);
 	
 	showVenueMap (document.getElementById('bimbler-venue-map'));
